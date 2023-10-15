@@ -1,4 +1,5 @@
 /* istanbul ignore file */
+// test
 import "./App.scss";
 import Page from "./pages/Home";
 import { DataProvider } from "./contexts/DataContext";
