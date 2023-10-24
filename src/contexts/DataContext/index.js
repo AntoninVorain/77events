@@ -24,10 +24,12 @@ export const DataProvider = ({ children }) => {
     try {
       const dataFromAPI = await api.loadData();
       setData(dataFromAPI);
-      // const sortedEvents = loadData.events.sort((a, b) => {
-        
-      // })
-      setLast(dataFromAPI.events[0])
+      const sortedEvents = dataFromAPI.events.sort((a, b) => {
+        const dateA = new Date(a.date)
+        const dateB = new Date(b.date)
+        return dateB - dateA
+      })
+      setLast(sortedEvents[0])
     } catch (err) {
       setError(err);
     }
